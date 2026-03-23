@@ -1,4 +1,4 @@
-import AlunoModel from '../models/AlunoModel.js';
+import AlunoModel from '../models/alunoModel.js';
 
 export const criar = async (req, res) => {
     try {
@@ -25,13 +25,13 @@ export const buscarTodos = async (req, res) => {
         const registros = await AlunoModel.buscarTodos(req.query);
 
         if (!registros || registros.length === 0) {
-            return res.status(200).json({ message: 'Nenhum registro encontrado.' });
+            return res.status(200).json({ message: 'Nenhum aluno encontrado.' });
         }
 
         res.json(registros);
     } catch (error) {
         console.error('Erro ao buscar:', error);
-        res.status(500).json({ error: 'Erro ao buscar registros.' });
+        res.status(500).json({ error: 'Erro ao buscar alunos.' });
     }
 };
 
